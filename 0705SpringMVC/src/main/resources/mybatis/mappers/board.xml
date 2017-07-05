@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 위의 부분은 고치면 안되는 설정 부분이기 때문에 복사해서 붙여넣기 -->
+
+<mapper namespace="board">
+	<select id="boardList" resultType="com.haley.sample.domain.Board">
+		select * from userboard
+	</select>
+
+</mapper>
