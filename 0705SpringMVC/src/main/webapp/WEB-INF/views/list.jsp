@@ -23,17 +23,29 @@
 			<th width="100">조회수</th>
 		</tr>
 		<c:forEach var="board" items="#{list}">
-		<tr align="center">
-			<td>${board.no}</td>
-			<td>${board.title}</td>
-			<td>${board.writer}</td>
-			<!-- 조회수는 보통 우측 정렬 -->
-			<!-- &nbsp; 공백 제거 명령문!!!! -->
-			<td align="right">${board.readcount}&nbsp;</td>
-		</tr>
+			<tr align="center">
+				<td>${board.num}</td>
+				<td><a href="detail?num=${board.num}">${board.title}</a></td>
+				<td>${board.writer}</td>
+				<!-- 조회수는 보통 우측 정렬 -->
+				<!-- &nbsp; 공백 제거 명령문!!!! -->
+				<td align="right">${board.readcnt}&nbsp;</td>
+			</tr>
 		</c:forEach>
 
+		<tr>
+			<td colspan="4" align="center"><input type="button"
+				value="게시글 작성" id="writeBt"></td>
+		</tr>
+
 	</table>
+
+	<script>
+		document.getElementById("writeBt").onclick = function() {
+			location.href = "./boardwrite"
+		}
+	</script>
+
 
 </body>
 </html>

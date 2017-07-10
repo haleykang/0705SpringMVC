@@ -9,6 +9,7 @@
 <body>
 
 <a href="boardList">전체보기</a>
+<a href="boardwrite">게시글 작성</a>
 
 </body>
 </html>

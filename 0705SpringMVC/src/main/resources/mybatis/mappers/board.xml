@@ -8,6 +8,43 @@
 <mapper namespace="board">
 	<select id="boardList" resultType="com.haley.sample.domain.Board">
 		select * from userboard
+		order
+		by num desc
 	</select>
+
+	<!-- public Board getBoard(int num); -->
+	<select id="getBoard" resultType="com.haley.sample.domain.Board"
+		parameterType="java.lang.Integer">
+		select * from userboard
+		where num = #{num}
+	</select>
+
+	<!-- public int updateReadcnt(int num); -->
+	<!-- update delete insert는 resultType 없음 -->
+	<update id="updateReadcnt" parameterType="java.lang.Integer">
+		update userboard
+		set
+		readcnt = readcnt + 1
+		where num = #{num}
+	</update>
+
+	<!-- public int maxNum(); -->
+	<select id="maxNum" resultType="java.lang.Integer">
+		select max(num)
+		from userboard
+	</select>
+
+	<!-- public int saveBoard(Board board); -->
+	<insert id="saveBoard" parameterType="com.haley.sample.domain.Board">
+		insert into userboard
+		values(#{num},#{title},#{content},#{writer},sysdate,0)
+	</insert>
+
+
+	<!-- public int deleteBoard(int num); -->
+	<delete id="deleteBoard" parameterType="java.lang.Integer">
+		delete from userboard
+		where num = #{num}
+	</delete>
 
 </mapper>
