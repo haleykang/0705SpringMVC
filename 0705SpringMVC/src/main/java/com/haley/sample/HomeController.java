@@ -67,8 +67,15 @@ public class HomeController {
 
 		boardService.deleteBoard(num);
 
-		// 목록보기로 이동 
+		// 목록보기로 이동
 		return "redirect:boardList";
+	}
+
+	// 회원가입 페이지로 이동 tomember
+	@RequestMapping(value = "toregister", method = RequestMethod.GET)
+	public String tomember() {
+
+		return "register";
 	}
 
 }

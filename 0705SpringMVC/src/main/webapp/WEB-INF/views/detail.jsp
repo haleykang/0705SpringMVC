@@ -56,15 +56,15 @@
 		document.getElementById("delBt").onclick = function() {
 			
 			location.href="./delete?num=" + ${board.num}
-		}
+		};
 
 		document.getElementById("listBt").onclick = function() {
-			location.href="./boardlist"
-		}
+			location.href="./boardList"
+		};
 
 		document.getElementById("mainBt").onclick = function() {
-			location.href="./"
-		}
+			location.href="./";
+		};
 		
 	</script>
 
