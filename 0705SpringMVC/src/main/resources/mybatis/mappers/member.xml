@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 위의 부분은 고치면 안되는 설정 부분이기 때문에 복사해서 붙여넣기 -->
+
+<mapper namespace="member">
+
+	<!-- 아이디 중복 체크 : public Map<String, Object> idCheck(String id); -->
+	<select id="idCheck" resultType="java.util.Map" parameterType="java.lang.String">
+		<!-- 리턴된 map이 null이면 사용 가능한 id, null이 아니면 사용 불가 -->
+		select *
+		from member
+		where id=#{id}
+	</select>
+
+	<!-- 회원 가입 : public int insertMember(Map<String, Object> map); -->
+	<insert id="insertMember" parameterType="java.util.Map">
+		insert into member
+		values(#{id},#{pw}, #{name})
+	</insert>
+
+</mapper>
